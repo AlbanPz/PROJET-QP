@@ -32,7 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="doctest.h" />
+		<Unit filename="testmain.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

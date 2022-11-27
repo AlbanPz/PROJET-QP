@@ -1,19 +1,7 @@
-#include <iostream>
-
-using namespace std;
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
 
 /**
     Ceci est le projet de tests unitaires pour le Jeu
 */
 
-void test() // Invisible dans l'autre projet
-{
-    cout << "Salut je suis la fn de test !" << endl;
-}
-
-int main()
-{
-    cout << "Hello world!" << endl;
-    test();
-    return 0;
-}

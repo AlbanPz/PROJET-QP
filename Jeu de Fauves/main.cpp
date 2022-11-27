@@ -10,7 +10,7 @@ int main()
 {
     cout << "Hello world!" << endl;
 
-    /*
+    /**
 
         Nous avons là deux projet bien distinct les fonctions et méthodes définit
         dans l'un n'est pas visible dans l'autre
