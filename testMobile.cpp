@@ -14,17 +14,30 @@ point p2 {};
 REQUIRE( p2.x() == 0.0 );
 REQUIRE( p2.y() == 0.0 );
 }
+<<<<<<< HEAD
+
+*/
+
+/** Cette partie ne compilait pas Cedric */
+
+/*
+=======
 */
 
 
 /** Cette partie ne compilait pas Cedric */
 
 
+>>>>>>> 9238379a0c20649091504fe304769ee693374832
 TEST_CASE("[Mobile] Le mobile est bien construit") {
  // constructeur avec x, y, force et typeDeplacement
  int x = 10, y = 15, force = 30, typeDeplacement = 10;
 
+<<<<<<< HEAD
+    Mobile a {x,y,force,typeDeplacement};
+=======
     Mobile a {"test",x,y,force,typeDeplacement};
+>>>>>>> 9238379a0c20649091504fe304769ee693374832
 
     REQUIRE( a.x() == x );
     REQUIRE( a.y() == y );
@@ -32,4 +45,8 @@ TEST_CASE("[Mobile] Le mobile est bien construit") {
     REQUIRE( a.typeDeplacement() == typeDeplacement );
 
 }
+<<<<<<< HEAD
+*/
+=======
 
+>>>>>>> 9238379a0c20649091504fe304769ee693374832

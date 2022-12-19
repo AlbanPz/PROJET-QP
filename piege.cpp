@@ -1,14 +1,14 @@
 #include "piege.h"
 
-piege::piege (int x, int y, int capa):Element{"piège",x,y},d_capacite{capa}
+Piege::Piege (int x, int y, int capa):Element{"piège",x,y},d_capacite{capa}
 {}
 
-int piege::capacite() const
+int Piege::capacite() const
 {
     return d_capacite;
 }
 
-void piege::diminuerCapacite()
+void Piege::diminuerCapacite()
 {
     d_capacite=d_capacite-1;
 }

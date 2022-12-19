@@ -1,7 +1,12 @@
 #include "element.h"
 
-Element::Element(int x, int y): d_x{x}, d_y{y}
+Element::Element(const std::string& nom, int x, int y): d_nom{nom}, d_x{x}, d_y{y}
 {}
+
+std::string Element::nom() const
+{
+    return d_nom;
+}
 
 int Element::x() const
 {

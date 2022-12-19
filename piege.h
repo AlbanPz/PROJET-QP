@@ -2,15 +2,15 @@
 #define PIEGE_H_INCLUDED
 
 #include "element.h"
-class piege : public Element {
+class Piege : public Element {
 
 public:
-piege (int x,int y,int capa);
-int capacite() const;
-void diminuerCapacite();
+    Piege (int x, int y, int capa);
+    int capacite() const;
+    void diminuerCapacite();
 
 private:
-int d_capacite;
+    int d_capacite;
 
 };
 
