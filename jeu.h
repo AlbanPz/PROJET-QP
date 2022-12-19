@@ -9,12 +9,13 @@ class Carte;
 class Jeu {
 public :
     Jeu( const Carte & c, const AfficheurCarte & a );
+    //Choisir difficulté cad le type deplacement du joueur
+    void changerDifficulte(int difficulte);
     // fait tourner le jeu jusqu'à la fin
     void jouer();
 
     // affiche la carte à l'aide de l'afficheur
     void afficherCarte()const;
-
     // renvoit le nombre de fauves tuer total
     int nombreKills()const;
     // renvoit le nombre de tours passés
@@ -22,9 +23,9 @@ public :
 
     // permet de changer le nombre de tours
     void changerNombreDeTours ( int nombreDetours);
-
     // permet de changer le nombre de fauves tuées
     void changerNombreKills ( int score );
+
 
     // permet de changer de carte
     void changerCarte ( const Carte & c);
