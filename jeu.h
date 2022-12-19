@@ -9,20 +9,30 @@ class Carte;
 class Jeu {
 public :
     Jeu( const Carte & c, const AfficheurCarte & a );
+    // fait tourner le jeu jusqu'à la fin
     void jouer();
-    void jouerUnTour();
-    //
-    //DECOUPE DES FONCTIONS JOUER POSSIBLE
-    //
+
+    // affiche la carte à l'aide de l'afficheur
     void afficherCarte()const;
 
-
+    // renvoit le nombre de fauves tuer total
     int nombreKills()const;
+    // renvoit le nombre de tours passés
     int nombreTours()const;
 
+    // permet de changer le nombre de tours
+    void changerNombreDeTours ( int nombreDetours);
+
+    // permet de changer le nombre de fauves tuées
+    void changerNombreKills ( int score );
+
+    // permet de changer de carte
     void changerCarte ( const Carte & c);
-    void changerAfficheur ( const AfficheurCarte & a);
+    //permet de changer d'afficheur
+    void changerAfficheur ( const AfficheurCarte* &a);
 public:
+    // fonction intermediaire appelée par la fonction jouer
+    void jouerUnTour();
     std::unique_prt <AfficheurCarte> d_afficheur;
     Carte d_carte;
     int d_kills;
