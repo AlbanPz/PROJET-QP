@@ -1,15 +1,21 @@
 #ifndef JEU_H
-#def JEU_H
+#define JEU_H
 
 
 #include <iostream>
+#include <memory>
 
 class Carte;
+class AfficheurCarte;
 
 class Jeu {
 public :
+    // Constructeur par défaut
+    Jeu();
+    // constructeur déja rempli
     Jeu( const Carte & c, const AfficheurCarte & a );
     //Choisir difficulté cad le type deplacement du joueur
+    /** difficulté = 2 --> dur sinon c'est difficulté normal **/
     void changerDifficulte(int difficulte);
     // fait tourner le jeu jusqu'à la fin
     void jouer();
@@ -34,7 +40,7 @@ public :
 public:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
-    std::unique_prt <AfficheurCarte> d_afficheur;
+    std::unique_ptr <AfficheurCarte> d_afficheur;
     Carte d_carte;
     int d_kills;
     int d_nbreToursDeJeu;
