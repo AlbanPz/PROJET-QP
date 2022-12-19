@@ -1,7 +1,5 @@
 #include "element.h"
 
 
-class Bloqueur : public Element {
-public:
-    Bloqueur(const std::string& nom, int x, int y);
-};
+Bloqueur::Bloqueur(const std::string& nom, int x, int y) : Element{nom, x, y}
+{}
