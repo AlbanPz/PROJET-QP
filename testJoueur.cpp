@@ -27,14 +27,14 @@ TEST_CASE("Test de la méthode peutSeDeplacerSurPosition de Joueur") {
     Joueur joueur("Joueur 1", 0, 0, 10, 1);
 
     // Test avec des positions valides
-    CHECK(joueur.peutSeDeplacerSurPosition(-1, 0));
-    CHECK(joueur.peutSeDeplacerSurPosition(1, 0));
-    CHECK(joueur.peutSeDeplacerSurPosition(0, -1));
-    CHECK(joueur.peutSeDeplacerSurPosition(0, 1));
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(-1, 0), true);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(1, 0), true);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(0, -1), true);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(0, 1), true);
 
     // Test avec des positions non valides
-    CHECK_FALSE(joueur.peutSeDeplacerSurPosition(-1, -1));
-    CHECK_FALSE(joueur.peutSeDeplacerSurPosition(1, 1));
-    CHECK_FALSE(joueur.peutSeDeplacerSurPosition(2, 0));
-    CHECK_FALSE(joueur.peutSeDeplacerSurPosition(0, 2));
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(-1, -1), false);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(1, 1), false);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(2, 0), false);
+    REQUIRE_EQ(joueur.peutSeDeplacerSurPosition(0, 2), false);
 }
