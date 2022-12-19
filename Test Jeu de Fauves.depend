@@ -101,3 +101,14 @@
 1671469170 d:\l3 miage\qualité de programmation\projet\projet-qp\element.h
 	<string>
 
+1671469922 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
+	"piege.h"
+
+1671469894 d:\l3 miage\qualité de programmation\projet\projet-qp\piege.h
+	"element.h"
+
+1670176453 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testelement.cpp
+	"doctest.h"
+	"element.h"
+	<string>
+

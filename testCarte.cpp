@@ -9,7 +9,7 @@ TEST_CASE("[Carte] La carte est bien construite")
 
     SUBCASE("Faire jouer un joueur est correcte")
     {
-        // A faire Ma 20/12
+        // A faire Ma 20/12.
     }
 
     SUBCASE("Faire jouer un fauve est correcte")
