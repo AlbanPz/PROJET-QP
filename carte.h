@@ -13,11 +13,11 @@ class Carte
 {
 public:
     Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte);
-    auto*& elementALaPosition(int x, int y); /** trouver une meilleure solution */
+    Element*& elementALaPosition(int x, int y); /** trouver une meilleure solution */
     void deplacerLeJoueur();
     void deplacerLesFauves();
-    void deplacerMobileSur(Mobile* mobile, auto* element, int x, int y);
-    void deplacerMobileSur(Mobile* mobile)
+    void deplacerMobileSur(Mobile* mobile, Element* element, int x, int y);
+    void deplacerMobileSur(Mobile* mobile); /** Pas fini ***/
     void supprimeUnFauve(Fauve*& fauve);
 private:
     int directionAleatoire();
