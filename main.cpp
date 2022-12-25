@@ -21,10 +21,14 @@ void menuChargerUneConfiguration()
 {
     /** A continuer lorsque les class le permettront **/
 }
-
+/**
+* Ce code ne compile pas
 void menuJouerPartie()
 {
+
     Jeu partie{};
+
+
     // Choix de la difficulté
     int choix = 0;
     cout <<"Quelle difficulte ?"<<endl
@@ -38,9 +42,14 @@ void menuJouerPartie()
          <<"2- 9 Carte personnalisees : Attention, si la carte n'existe pas, une carte aléatoire sera generee"<<endl;
     cin>> choix;
 
-    /** A continuer lorsque les class le permettront **/
-}
+    */ // fin premier commentaire
 
+    /** A continuer lorsque les class le permettront */
+//}
+
+
+/**
+* Ce code ne compile pas
 
 void menu()
 {
@@ -70,11 +79,11 @@ void menu()
          }
     }
 }
-
+*/
 
 int main()
 {
-    menu();
+//    menu();
 
 
     /**

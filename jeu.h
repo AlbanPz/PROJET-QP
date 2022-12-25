@@ -40,8 +40,8 @@ public :
 public:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
-    std::unique_ptr <AfficheurCarte> d_afficheur;
-    Carte d_carte;
+//    std::unique_ptr <AfficheurCarte> d_afficheur; // Ne compile pas
+//    Carte d_carte; // Ne compile pas
     int d_kills;
     int d_nbreToursDeJeu;
 };
