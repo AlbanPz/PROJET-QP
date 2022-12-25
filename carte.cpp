@@ -2,16 +2,19 @@
 #include <time.h>
 #include "carte.h"
 #include "fauve.h"
+#include "piege.h"
 
 Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte):
     d_joueur{joueur}, d_fauves{fauve}, d_carte{carte}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
 {}
 
-Element*& Carte::elementALaPosition(int x, int y)
+Element* Carte::elementALaPosition(int x, int y)
 {
     for (auto& carte : d_carte)
         if (carte->x() == x && carte->y() == y)
             return carte;
+
+    return nullptr;
 }
 
 int Carte::directionAleatoire()
@@ -161,18 +164,38 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int x, int y)
         //d_joueur.kill(true); Tuer le joueur
     }else if (element->nom() == "Fauve")
     {
-        if (mobile->force() > element->force())
-        {
-            mobile->changerPosition(x, y);
-            supprimeUnFauve(element);
-        }
+        deplacerMobileSur(mobile, element, x, y);
+    }else if (element->nom() == "Piege")
+    {
+        mobile->changerPosition(x, y);
+        deplacerMobileSur(mobile, element); /** il faut que element soit un piege */
+    }
+
+    /** Si c'est un bloqueur on ne fait rien */
+}
+
+void Carte::deplacerMobileSur(Mobile* mobile, Fauve* fauve, int x, int y)
+{
+    if (mobile->force() > fauve->force())
+    {
+        mobile->changerPosition(x, y);
+        supprimeUnMobile(fauve);
     }
 }
 
-void Carte::supprimeUnFauve(Fauve*& fauve)
+void Carte::deplacerMobileSur(Mobile* mobile, Piege* piege)
 {
-    Fauve* aux = fauve;
-    fauve = nullptr;
+    if (piege->capacite() > 0)
+    {
+        supprimeUnMobile(mobile);
+        piege->diminuerCapacite();
+    }
+}
+
+void Carte::supprimeUnMobile(Mobile* mobile)
+{
+    Mobile* aux = mobile;
+    mobile = nullptr;
     delete aux;
 }
 
