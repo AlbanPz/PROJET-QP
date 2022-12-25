@@ -12,21 +12,22 @@ class Bloqueur;
 class Carte
 {
 public:
-    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<Element*> element);
-    void supprimeUnFauve(Fauve*& fauve);
+    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte);
+    Element*& elementALaPosition(int x, int y);
     void deplacerLeJoueur();
     void deplacerLesFauves();
-    Element*& elementALaPosition(int x, int y);
     void deplacerMobileSur(Fauve*& fauve);
     void deplacerMobileSur(Element*& immobile);
+    void supprimeUnFauve(Fauve*& fauve);
 private:
+    int directionAleatoire();
     void deplacerUnFauve(int i);
 
     Joueur d_joueur;
     std::vector<Fauve*> d_fauves;
     std::vector<Element*> d_carte;
-    int dureeVieJoueur;
-    int nbFauvesMort;
+    int d_dureeVieJoueur;
+    int d_nbFauvesMort;
 };
 
 #endif // CARTE_H_INCLUDED
