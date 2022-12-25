@@ -2,14 +2,13 @@
 
 #include "jeu.h"
 
-
 /**
     Ceci est le projet principal pour le Jeu
 */
 
 using std::cout;
-using std::endl;
 using std::cin;
+using std::endl;
 
 
 void menuCreerEditerCarte()
@@ -84,7 +83,6 @@ void menu()
 int main()
 {
 //    menu();
-
 
     /**
         Nous avons là deux projets bien distincts
