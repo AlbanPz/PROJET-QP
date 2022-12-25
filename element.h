@@ -7,12 +7,10 @@ class Element
 {
 public:
     Element(const std::string& nom, int x, int y);
+    std::string nom() const;
     int x() const;
     int y() const;
-
-    // changer la position de l'élément  A FAIRE
-    void changerPosition ( int x, int y);
-    std::string nom() const;
+    void changerPosition (int x, int y);
 private:
     std::string d_nom;
     int d_x;
