@@ -8,7 +8,7 @@
 class Mobile : public Element {
     public :
         Mobile ( int x, int y, int force, int typeDeplacement );
-        bool peutSeDeplacerSurPosition ( int x, int y) const;
+        bool peutSeDeplacerSurPosition (int x, int y) const;
         //char affiche()const override;
 
         int force()const;
