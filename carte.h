@@ -13,14 +13,15 @@ class Carte
 {
 public:
     Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte);
-    Element*& elementALaPosition(int x, int y);
+    auto*& elementALaPosition(int x, int y); /** trouver une meilleure solution */
     void deplacerLeJoueur();
     void deplacerLesFauves();
-    void deplacerMobileSur(Fauve*& fauve);
-    void deplacerMobileSur(Element*& immobile);
+    void deplacerMobileSur(Mobile* mobile, auto* element, int x, int y);
+    void deplacerMobileSur(Mobile* mobile)
     void supprimeUnFauve(Fauve*& fauve);
 private:
     int directionAleatoire();
+    void directionFauve(Fauve* fauve, int& x, int& y);
     void deplacerUnFauve(int i);
 
     Joueur d_joueur;
