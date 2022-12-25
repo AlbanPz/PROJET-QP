@@ -7,7 +7,7 @@ Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<Element*> car
     d_joueur{joueur}, d_fauves{fauve}, d_carte{carte}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
 {}
 
-auto*& Carte::elementALaPosition(int x, int y)
+Element*& Carte::elementALaPosition(int x, int y)
 {
     for (auto& carte : d_carte)
         if (carte->x() == x && carte->y() == y)
@@ -146,7 +146,7 @@ void Carte::deplacerLesFauves()
         deplacerUnFauve(i);
 }
 
-void Carte::deplacerMobileSur(Mobile* mobile, auto* element, int x, int y)
+void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int x, int y)
 {
     /** Pour le moment on part du principe que le mobile en question est un fauve */
     if (element == nullptr)
@@ -163,13 +163,16 @@ void Carte::deplacerMobileSur(Mobile* mobile, auto* element, int x, int y)
     {
         if (mobile->force() > element->force())
         {
-            //supprimeUnFauve(element);
+            mobile->changerPosition(x, y);
+            supprimeUnFauve(element);
         }
     }
 }
 
 void Carte::supprimeUnFauve(Fauve*& fauve)
 {
-
+    Fauve* aux = fauve;
+    fauve = nullptr;
+    delete aux;
 }
 
