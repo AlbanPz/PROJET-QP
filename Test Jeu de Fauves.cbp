@@ -32,7 +32,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="carte.cpp" />
+		<Unit filename="carte.h" />
 		<Unit filename="doctest.h" />
+		<Unit filename="element.cpp" />
+		<Unit filename="element.h" />
+		<Unit filename="mobile.cpp" />
+		<Unit filename="mobile.h" />
+		<Unit filename="mobileTest.cpp" />
+		<Unit filename="piege.cpp" />
+		<Unit filename="piege.h" />
+		<Unit filename="testCarte.cpp" />
+		<Unit filename="testElement.cpp" />
+		<Unit filename="testMobile.cpp" />
+		<Unit filename="testPiege.cpp" />
 		<Unit filename="testmain.cpp" />
 		<Extensions />
 	</Project>

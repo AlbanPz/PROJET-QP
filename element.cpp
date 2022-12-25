@@ -18,3 +18,9 @@ int Element::y() const
     return d_y;
 }
 
+void Element::changerPosition(int x, int y)
+{
+    d_x = x;
+    d_y = y;
+}
+
