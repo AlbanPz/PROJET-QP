@@ -149,7 +149,6 @@ void Carte::deplacerLesFauves()
         deplacerUnFauve(i);
 }
 
-
 void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int x, int y)
 {
     /** Pour le moment on part du principe que le mobile en question est un fauve */
@@ -169,14 +168,11 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int x, int y)
     }else if (element->nom() == "Piege")
     {
         mobile->changerPosition(x, y);
-        // Ne compile pas
-        //deplacerMobileSur(mobile, element); /** il faut que element soit un piege */
+        deplacerMobileSur(mobile, element); /** il faut que element soit un piege */
     }
 
     /** Si c'est un bloqueur on ne fait rien */
 }
-
-
 
 void Carte::deplacerMobileSur(Mobile* mobile, Fauve* fauve, int x, int y)
 {
