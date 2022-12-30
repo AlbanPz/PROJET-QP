@@ -10,11 +10,7 @@ Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<std::vector<E
 
 Element* Carte::elementALaPosition(int x, int y)
 {
-    for (auto& carte : d_carte)
-        if (carte->x() == x && carte->y() == y)
-            return carte;
-
-    return nullptr;
+    return d_carte[x][y];
 }
 
 int Carte::directionAleatoire()
@@ -98,37 +94,37 @@ void Carte::deplacerLeJoueur()
     ++d_dureeVieJoueur;
 }
 
-void Carte::directionFauve(Fauve* fauve, int & x, int& y)
+void Carte::directionFauve(Fauve* fauve, int& newX, int& newY)
 {
     int xj = d_joueur.x(), yj = d_joueur.y();
 
     if (xj < fauve->x())
     {
-        x = fauve->x() - 1;
+        newX = fauve->x() - 1;
         if (yj < fauve->y())
-            y = fauve->y() - 1;
+            newY = fauve->y() - 1;
         else if (yj > fauve->y())
-            y = fauve->y() + 1;
+            newY = fauve->y() + 1;
         else
-            y = fauve->y();
+            newY = fauve->y();
     }else if (xj > fauve->x())
     {
-        x = fauve->x() + 1;
+        newX = fauve->x() + 1;
         if (yj < fauve->y())
-            y = fauve->y() - 1;
+            newY = fauve->y() - 1;
         else if (yj > fauve->y())
-            y = fauve->y() + 1;
+            newY = fauve->y() + 1;
         else
-            y = fauve->y();
+            newY = fauve->y();
     }else
     {
-        x = fauve->x();
+        newX = fauve->x();
         if (yj < fauve->y())
-            y = fauve->y() - 1;
+            newY = fauve->y() - 1;
         else if (yj > fauve->y())
-            y = fauve->y() + 1;
+            newY = fauve->y() + 1;
         else
-            y = fauve->y();
+            newY = fauve->y();
     }
 }
 
@@ -150,56 +146,50 @@ void Carte::deplacerLesFauves()
 }
 
 
-void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int x, int y)
+void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY)
 {
-    /** Pour le moment on part du principe que le mobile en question est un fauve */
+    /**
+        * Le mobile en question est un fauve
+        * Car le joueur ne se déplace que sur des cases vides
+    */
+
     if (element == nullptr)
     {
-        mobile->changerPosition(x, y);
+        mobile->changerPosition(newX, newY);
         return;
     }
 
-    if (element->nom() == "Joueur")
+    bool ok = element->seDeplacer(mobile, newX, newY);
+
+    if (ok && element->nom() == "Fauve")
     {
-        mobile->changerPosition(x, y);
-        //d_joueur.kill(true); Tuer le joueur
-    }else if (element->nom() == "Fauve")
+        supprimeUnElement(element);
+        ++d_nbFauvesMort;
+    }
+    else if (ok && element->nom() == "Piege")
     {
-        deplacerMobileSur(mobile, element, x, y);
-    }else if (element->nom() == "Piege")
-    {
-        mobile->changerPosition(x, y);
-        // Ne compile pas
-        //deplacerMobileSur(mobile, element); /** il faut que element soit un piege */
+        supprimeUnElement(mobile);
+        ++d_nbFauvesMort;
     }
 
     /** Si c'est un bloqueur on ne fait rien */
 }
 
 
-
-void Carte::deplacerMobileSur(Mobile* mobile, Fauve* fauve, int x, int y)
+int Carte::dureeDeVieDuJoueur() const
 {
-    if (mobile->force() > fauve->force())
-    {
-        mobile->changerPosition(x, y);
-        supprimeUnMobile(fauve);
-    }
+    return d_dureeVieJoueur;
 }
 
-void Carte::deplacerMobileSur(Mobile* mobile, Piege* piege)
+int Carte::nbFauvesMort() const
 {
-    if (piege->capacite() > 0)
-    {
-        supprimeUnMobile(mobile);
-        piege->diminuerCapacite();
-    }
+    return d_nbFauvesMort;
 }
 
-void Carte::supprimeUnMobile(Mobile* mobile)
+void Carte::supprimeUnElement(Element* element)
 {
-    Mobile* aux = mobile;
-    mobile = nullptr;
+    Element* aux = element;
+    element = nullptr;
     delete aux;
 }
 
