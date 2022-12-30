@@ -3,6 +3,8 @@
 
 #include <string>
 
+class Mobile;
+
 class Element
 {
 public:
@@ -11,6 +13,8 @@ public:
     int x() const;
     int y() const;
     void changerPosition (int x, int y);
+    virtual bool seDeplacer(Mobile* mobile, int x, int y) = 0;
+    virtual ~Element() = default;
 private:
     std::string d_nom;
     int d_x;
