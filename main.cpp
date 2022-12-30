@@ -22,6 +22,8 @@ void menuChargerUneConfiguration()
 {
     /** A continuer lorsque les class le permettront **/
 }
+/**
+* Car constructeur joueur ne compile pas
 
 void menuJouerPartie()
 {
@@ -52,12 +54,13 @@ void menuJouerPartie()
     cin>> choix;
 
 
-
+*/
     /** A continuer lorsque les class le permettront */
-}
+//}
 
 
-
+/**
+* car erreur ligne 86
 
 void menu()
 {
@@ -87,7 +90,7 @@ void menu()
          }
     }
 }
-
+*/
 
 int main()
 {

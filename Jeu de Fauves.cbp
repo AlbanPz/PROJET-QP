@@ -32,7 +32,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="bloqueur.cpp" />
+		<Unit filename="bloqueur.h" />
+		<Unit filename="carte.cpp" />
+		<Unit filename="carte.h" />
+		<Unit filename="element.cpp" />
+		<Unit filename="element.h" />
+		<Unit filename="fauve.cpp" />
+		<Unit filename="fauve.h" />
+		<Unit filename="jeu.h" />
+		<Unit filename="joueur.cpp" />
+		<Unit filename="joueur.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mobile.cpp" />
+		<Unit filename="mobile.h" />
+		<Unit filename="piege.cpp" />
+		<Unit filename="piege.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
