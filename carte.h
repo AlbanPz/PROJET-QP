@@ -12,7 +12,7 @@ class Bloqueur;
 class Carte
 {
 public:
-    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte);
+    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<vector<Element*>> carte);
     Element* elementALaPosition(int x, int y); /** trouver une meilleure solution */
     void deplacerLeJoueur();
     void deplacerLesFauves();
@@ -27,7 +27,7 @@ private:
 
     Joueur d_joueur;
     std::vector<Fauve*> d_fauves;
-    std::vector<Element*> d_carte;
+    std::vector<std::vector<Element*>> d_carte;
     int d_dureeVieJoueur;
     int d_nbFauvesMort;
 };
