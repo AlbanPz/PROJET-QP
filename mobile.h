@@ -13,8 +13,7 @@ class Mobile : public Element {
 
         int force()const;
         int typeDeplacement()const;
-
-
+        bool seDeplacer(Mobile* mobile, int x, int y) override = 0;
     private :
         bool deplacementVertiHori ( int x , int y )const;
         bool deplacementDiagonale (int x, int y ) const;
