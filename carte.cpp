@@ -4,7 +4,7 @@
 #include "fauve.h"
 #include "piege.h"
 
-Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<Element*> carte):
+Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> carte):
     d_joueur{joueur}, d_fauves{fauve}, d_carte{carte}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
 {}
 
