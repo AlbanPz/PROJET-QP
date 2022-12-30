@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <memory>
+
 #include "jeu.h"
 
 /**
@@ -20,12 +22,20 @@ void menuChargerUneConfiguration()
 {
     /** A continuer lorsque les class le permettront **/
 }
-/**
-* Ce code ne compile pas
+
 void menuJouerPartie()
 {
 
-    Jeu partie{};
+    Joueur jo ( "Joueur", 10 , 15 , 0 ,0 );
+    std::vector<Fauve*> fauves {};
+    std::vector<std::vector<Element*>> c;
+
+
+    Carte carte1 (jo, fauves, c );
+
+
+
+    //Jeu partie{};
 
 
     // Choix de la difficulté
@@ -34,21 +44,20 @@ void menuJouerPartie()
          <<"1- Normal" <<endl
          <<"2- Dur (mobilite reduite aux axes horizontaux et verticaux)"<<endl;
     cin>> choix;
-    partie.changerDifficulte(choix);
+    //partie.changerDifficulte(choix);
 
     // Choix de la carte
     cout <<"1- Carte aleatoire" <<endl
          <<"2- 9 Carte personnalisees : Attention, si la carte n'existe pas, une carte aléatoire sera generee"<<endl;
     cin>> choix;
 
-    */ // fin premier commentaire
+
 
     /** A continuer lorsque les class le permettront */
-//}
+}
 
 
-/**
-* Ce code ne compile pas
+
 
 void menu()
 {
@@ -78,7 +87,7 @@ void menu()
          }
     }
 }
-*/
+
 
 int main()
 {
