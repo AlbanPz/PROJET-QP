@@ -39,7 +39,6 @@
 		<Unit filename="element.h" />
 		<Unit filename="mobile.cpp" />
 		<Unit filename="mobile.h" />
-		<Unit filename="mobileTest.cpp" />
 		<Unit filename="piege.cpp" />
 		<Unit filename="piege.h" />
 		<Unit filename="testCarte.cpp" />

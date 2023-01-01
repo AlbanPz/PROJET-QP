@@ -13,6 +13,8 @@ class Mobile : public Element {
 
         int force()const;
         int typeDeplacement()const;
+
+        /** Rajouté par Mdou Dian */
         bool seDeplacer(Mobile* mobile, int x, int y) override = 0;
     private :
         bool deplacementVertiHori ( int x , int y )const;

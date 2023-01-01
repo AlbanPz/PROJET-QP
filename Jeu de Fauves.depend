@@ -2,56 +2,59 @@
 1669573578 source:d:\l3 miage\qualité de programmation\projet\projet-qp\jeu de fauves\main.cpp
 	<iostream>
 
-1671972654 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
+1672435342 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
 	<cstdlib>
 	<time.h>
 	"carte.h"
 	"fauve.h"
+	"piege.h"
 
-1671972643 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
+1672434810 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
 	<vector>
 	"joueur.h"
 
-1671985730 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
+1672432189 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
 	"piege.h"
+	"mobile.h"
 
-1671469894 d:\l3 miage\qualité de programmation\projet\projet-qp\piege.h
+1672435932 d:\l3 miage\qualité de programmation\projet\projet-qp\piege.h
 	"element.h"
 
-1671956243 d:\l3 miage\qualité de programmation\projet\projet-qp\element.h
+1672431393 d:\l3 miage\qualité de programmation\projet\projet-qp\element.h
 	<string>
 
 1671952697 source:d:\l3 miage\qualité de programmation\projet\projet-qp\bloqueur.cpp
 	"bloqueur.h"
 
-1671952697 d:\l3 miage\qualité de programmation\projet\projet-qp\bloqueur.h
+1672435955 d:\l3 miage\qualité de programmation\projet\projet-qp\bloqueur.h
 	"element.h"
 
 1671955894 source:d:\l3 miage\qualité de programmation\projet\projet-qp\element.cpp
 	"element.h"
 
-1671956385 source:d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.cpp
+1672431748 source:d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.cpp
 	"fauve.h"
 
-1671952697 d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.h
+1672435915 d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.h
 	"mobile.h"
 
-1671959315 d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.h
+1672435965 d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.h
 	<iostream>
 	"element.h"
 	<cmath>
 
-1671956426 source:d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.cpp
+1672433861 source:d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.cpp
 	"joueur.h"
 
-1671952697 d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.h
+1672433709 d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.h
 	"mobile.h"
 
 1671956877 source:d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.cpp
 	"mobile.h"
 
-1671963983 source:d:\l3 miage\qualité de programmation\projet\projet-qp\main.cpp
+1672429091 source:d:\l3 miage\qualité de programmation\projet\projet-qp\main.cpp
 	<iostream>
+	<memory>
 	"jeu.h"
 
 1671956938 d:\l3 miage\qualité de programmation\projet\projet-qp\jeu.h
