@@ -22,6 +22,8 @@ int Carte::directionAleatoire()
 
 void Carte::deplacerLeJoueur()
 {
+    if (!d_joueur.estVivant()) return;
+
     int dir = directionAleatoire();
 
     switch(dir)
@@ -130,10 +132,12 @@ void Carte::directionFauve(Fauve* fauve, int& newX, int& newY)
 
 void Carte::deplacerUnFauve(int i)
 {
+    if (!d_fauves[i]) return;
+
     int x = 0, y = 0;
     directionFauve(d_fauves[i], x, y);
 
-    if (d_fauves[i] && d_fauves[i]->peutSeDeplacerSurPosition(x, y))
+    if (d_fauves[i]->peutSeDeplacerSurPosition(x, y))
     {
         deplacerMobileSur(d_fauves[i], elementALaPosition(x, y), x, y);
     }

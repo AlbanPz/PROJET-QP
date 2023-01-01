@@ -18,12 +18,12 @@ public:
     void deplacerLesFauves();
     int dureeDeVieDuJoueur() const;
     int nbFauvesMort() const;
-    void supprimeUnElement(Element* element);
 private:
     int directionAleatoire();
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
     void deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY);
+    void supprimeUnElement(Element* element);
 
     Joueur d_joueur;
     std::vector<Fauve*> d_fauves;
