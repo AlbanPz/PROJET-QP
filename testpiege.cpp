@@ -15,7 +15,7 @@ TEST_CASE ("le piège fonctionne")
         }
         SUBCASE ("le nom est correcte")
         {
-            std::string name = "piège";
+            std::string name = "Piege";
             REQUIRE_EQ(p.nom(),name);
         }
         SUBCASE ("la capacité est correcte")
