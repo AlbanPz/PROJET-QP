@@ -98,27 +98,34 @@
 1671955894 source:d:\l3 miage\qualité de programmation\projet\projet-qp\element.cpp
 	"element.h"
 
-1671956243 d:\l3 miage\qualité de programmation\projet\projet-qp\element.h
+1672431393 d:\l3 miage\qualité de programmation\projet\projet-qp\element.h
 	<string>
 
-1671469922 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
+1672435938 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
 	"piege.h"
-
-1671469894 d:\l3 miage\qualité de programmation\projet\projet-qp\piege.h
-	"element.h"
-
-1670176453 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testelement.cpp
-	"doctest.h"
-	"element.h"
-	<string>
-
-1670178629 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
-	"carte.h"
-
-1670179069 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
 	"mobile.h"
 
-1671959315 d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.h
+1672435932 d:\l3 miage\qualité de programmation\projet\projet-qp\piege.h
+	"element.h"
+
+1672577480 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testelement.cpp
+	"doctest.h"
+	"element.h"
+	"fauve.h"
+	<string>
+
+1672435342 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
+	<cstdlib>
+	<time.h>
+	"carte.h"
+	"fauve.h"
+	"piege.h"
+
+1672573118 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
+	<vector>
+	"joueur.h"
+
+1672572745 d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.h
 	<iostream>
 	"element.h"
 	<cmath>
@@ -126,6 +133,27 @@
 1671471577 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testcarte.cpp
 	"doctest.h"
 
-1671956877 source:d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.cpp
+1672571761 source:d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.cpp
 	"mobile.h"
+
+1672573005 d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.h
+	"mobile.h"
+
+1672435915 d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.h
+	"mobile.h"
+
+1672576416 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testpiege.cpp
+	"doctest.h"
+	"piege.h"
+	<string>
+
+1672572868 source:d:\l3 miage\qualité de programmation\projet\projet-qp\testmobile.cpp
+	"doctest.h"
+	"mobile.h"
+
+1672572982 source:d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.cpp
+	"joueur.h"
+
+1672576525 source:d:\l3 miage\qualité de programmation\projet\projet-qp\fauve.cpp
+	"fauve.h"
 

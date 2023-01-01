@@ -27,6 +27,7 @@ REQUIRE( p2.y() == 0.0 );
 
 /** Cette partie ne compilait pas Cedric */
 
+/*
 
 >>>>>>> 9238379a0c20649091504fe304769ee693374832
 TEST_CASE("[Mobile] Le mobile est bien construit") {
@@ -47,6 +48,6 @@ TEST_CASE("[Mobile] Le mobile est bien construit") {
 }
 <<<<<<< HEAD
 */
-=======
+//=======
 
->>>>>>> 9238379a0c20649091504fe304769ee693374832
+//>>>>>>> 9238379a0c20649091504fe304769ee693374832

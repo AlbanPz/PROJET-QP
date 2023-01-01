@@ -37,6 +37,8 @@
 		<Unit filename="doctest.h" />
 		<Unit filename="element.cpp" />
 		<Unit filename="element.h" />
+		<Unit filename="joueur.cpp" />
+		<Unit filename="joueur.h" />
 		<Unit filename="mobile.cpp" />
 		<Unit filename="mobile.h" />
 		<Unit filename="piege.cpp" />
