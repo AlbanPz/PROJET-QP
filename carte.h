@@ -12,13 +12,14 @@ class Bloqueur;
 class Carte
 {
 public:
-    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> carte);
+    Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> grille);
     Element* elementALaPosition(int x, int y);
     void deplacerLeJoueur();
     void deplacerLesFauves();
     int dureeDeVieDuJoueur() const;
     int nbFauvesMort() const;
 private:
+    void ajouterLesFauvesDansLaGrille();
     int directionAleatoire();
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
@@ -27,7 +28,7 @@ private:
 
     Joueur d_joueur;
     std::vector<Fauve*> d_fauves;
-    std::vector<std::vector<Element*>> d_carte;
+    std::vector<std::vector<Element*>> d_grille;
     int d_dureeVieJoueur;
     int d_nbFauvesMort;
 };

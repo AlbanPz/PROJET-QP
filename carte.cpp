@@ -4,13 +4,27 @@
 #include "fauve.h"
 #include "piege.h"
 
-Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> carte):
-    d_joueur{joueur}, d_fauves{fauve}, d_carte{carte}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
-{}
+Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> grille):
+    d_joueur{joueur}, d_fauves{fauve}, d_grille{grille}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
+{
+    int x = d_joueur.x(), y = d_joueur.y();
+    d_grille[x][y] = new Joueur{d_joueur};
+    ajouterLesFauvesDansLaGrille();
+    /** Pttr méthode maj de la grille */
+}
+
+void Carte::ajouterLesFauvesDansLaGrille()
+{
+    for (const auto& f : d_fauves)
+    {
+        int x = f->x(), y = f->y();
+        d_grille[x][y] = new Fauve{*f};
+    }
+}
 
 Element* Carte::elementALaPosition(int x, int y)
 {
-    return d_carte[x][y];
+    return d_grille[x][y];
 }
 
 int Carte::directionAleatoire()
