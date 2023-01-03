@@ -1,7 +1,7 @@
 #include "piege.h"
 #include "mobile.h"
 
-Piege::Piege (int x, int y, int capa):Element{"Piege",x,y}, d_capacite{capa}
+Piege::Piege (int x, int y, int capa):Element{"Arbre", "Piege",x,y}, d_capacite{capa}
 {}
 
 int Piege::capacite() const

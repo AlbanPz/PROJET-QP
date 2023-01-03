@@ -1,7 +1,7 @@
 #include "mobile.h"
 
-Mobile::Mobile (const std::string &nom,int x, int y, int force, int typeDeplacement ):
-    Element{nom,x,y}, d_force { force}, d_typeDeplacement {typeDeplacement}
+Mobile::Mobile (const std::string &nom, const std::string &type, int x, int y, int force, int typeDeplacement):
+    Element{nom, type, x,y}, d_force { force}, d_typeDeplacement {typeDeplacement}
 {}
 
 int Mobile::force()const

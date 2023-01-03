@@ -30,13 +30,6 @@ Element* Carte::elementALaPosition(int x, int y)
     return d_grille[x][y];
 }
 
-int Carte::directionAleatoire()
-{
-    std::srand(time(0));
-
-    return rand()%8;
-}
-
 void Carte::deplacerLeJoueur(int x, int y)
 {
     if (!d_joueur.estVivant()) return;
@@ -114,7 +107,8 @@ void Carte::deplacerLesFauves()
 void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY)
 {
     /**
-        * Le mobile en question est un fauve
+        * Ici, le mobile en question est un fauve
+        * Car le joueur est traité à part
     */
 
     if (element == nullptr)
@@ -125,12 +119,12 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int ne
 
     bool ok = element->seDeplacer(mobile, newX, newY);
 
-    if (ok && element->nom() == "Fauve")
+    if (ok && element->type() == "Fauve")
     {
         supprimeUnElement(element);
         ++d_nbFauvesMort;
     }
-    else if (ok && element->nom() == "Piege")
+    else if (ok && element->type() == "Piege")
     {
         supprimeUnElement(mobile);
         ++d_nbFauvesMort;

@@ -8,8 +8,9 @@ class Mobile;
 class Element
 {
 public:
-    Element(const std::string& nom, int x, int y);
+    Element(const std::string& nom, const std::string& type, int x, int y);
     std::string nom() const;
+    std::string type() const;
     int x() const;
     int y() const;
     void changerPosition (int x, int y);
@@ -17,6 +18,7 @@ public:
     virtual ~Element() = default;
 private:
     std::string d_nom;
+    std::string d_type;
     int d_x;
     int d_y;
 };

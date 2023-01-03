@@ -8,7 +8,7 @@
 class Mobile : public Element
 {
     public :
-        Mobile ( const std::string & nom, int x, int y, int force, int typeDeplacement );
+        Mobile (const std::string &nom, const std::string &type, int x, int y, int force, int typeDeplacement );
         bool peutSeDeplacerSurPosition (int x, int y) const;
         //char affiche()const override;
 

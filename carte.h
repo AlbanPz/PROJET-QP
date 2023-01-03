@@ -20,7 +20,6 @@ public:
     int nbFauvesMort() const;
 private:
     void ajouterLesMobilesDansLaGrille();
-    int directionAleatoire();
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
     void deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY);
