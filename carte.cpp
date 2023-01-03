@@ -7,18 +7,21 @@
 Carte::Carte(Joueur joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> grille):
     d_joueur{joueur}, d_fauves{fauve}, d_grille{grille}, d_dureeVieJoueur{0}, d_nbFauvesMort{0}
 {
-    int x = d_joueur.x(), y = d_joueur.y();
-    d_grille[x][y] = new Joueur{d_joueur};
-    ajouterLesFauvesDansLaGrille();
+    ajouterLesMobilesDansLaGrille();
     /** Pttr méthode maj de la grille */
 }
 
-void Carte::ajouterLesFauvesDansLaGrille()
+void Carte::ajouterLesMobilesDansLaGrille()
 {
+    /** Ajout du joueur */
+    int x = d_joueur.x(), y = d_joueur.y();
+    d_grille[x][y] = &d_joueur;
+
+    /** Ajout des fauves */
     for (const auto& f : d_fauves)
     {
         int x = f->x(), y = f->y();
-        d_grille[x][y] = new Fauve{*f};
+        d_grille[x][y] = f;
     }
 }
 
@@ -34,80 +37,24 @@ int Carte::directionAleatoire()
     return rand()%8;
 }
 
-void Carte::deplacerLeJoueur()
+void Carte::deplacerLeJoueur(int x, int y)
 {
     if (!d_joueur.estVivant()) return;
 
-    int dir = directionAleatoire();
-
-    switch(dir)
+    if (d_joueur.peutSeDeplacerSurPosition(x, y))
     {
-        case 0: // Devant
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()+1, d_joueur.y()))
-            {
-                if (elementALaPosition(d_joueur.x()+1, d_joueur.y()) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()+1, d_joueur.y());
-            }
-            break;
+        Element* element = elementALaPosition(x, y);
 
-        case 1: // Diagonal devant à gauche
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()+1, d_joueur.y()+1))
-            {
-                if (elementALaPosition(d_joueur.x()+1, d_joueur.y()+1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()+1, d_joueur.y()+1);
-            }
-            break;
-
-        case 2: // Haut
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x(), d_joueur.y()+1))
-            {
-                if (elementALaPosition(d_joueur.x(), d_joueur.y()+1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x(), d_joueur.y()+1);
-            }
-            break;
-
-        case 3: // Diagonal derrière à droite
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()-1, d_joueur.y()+1))
-            {
-                if (elementALaPosition(d_joueur.x()-1, d_joueur.y()+1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()-1, d_joueur.y()+1);
-            }
-            break;
-
-        case 4: // Derrière
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()-1, d_joueur.y()))
-            {
-                if (elementALaPosition(d_joueur.x()-1, d_joueur.y()) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()-1, d_joueur.y());
-            }
-            break;
-
-        case 5: // Diagonal derrière à gauche
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()-1, d_joueur.y()-1))
-            {
-                if (elementALaPosition(d_joueur.x()-1, d_joueur.y()-1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()-1, d_joueur.y()-1);
-            }
-            break;
-
-        case 6: // Bas
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x(), d_joueur.y()-1))
-            {
-                if (elementALaPosition(d_joueur.x(), d_joueur.y()-1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x(), d_joueur.y()-1);
-            }
-            break;
-
-        case 7: // Diagonal devant à droite
-            if (d_joueur.peutSeDeplacerSurPosition(d_joueur.x()+1, d_joueur.y()-1))
-            {
-                if (elementALaPosition(d_joueur.x()+1, d_joueur.y()-1) == nullptr)
-                    d_joueur.changerPosition(d_joueur.x()+1, d_joueur.y()-1);
-            }
-            break;
+        if (!element)
+        {
+            d_joueur.changerPosition(x, y);
+            ++ d_dureeVieJoueur;
+        }else
+        {
+            if (!element->seDeplacer(&d_joueur, x, y))
+                ++d_dureeVieJoueur;
+        }
     }
-
-    ++d_dureeVieJoueur;
 }
 
 void Carte::directionFauve(Fauve* fauve, int& newX, int& newY)
@@ -168,7 +115,6 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int ne
 {
     /**
         * Le mobile en question est un fauve
-        * Car le joueur ne se déplace que sur des cases vides
     */
 
     if (element == nullptr)

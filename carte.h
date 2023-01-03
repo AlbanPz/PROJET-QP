@@ -14,12 +14,12 @@ class Carte
 public:
     Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> grille);
     Element* elementALaPosition(int x, int y);
-    void deplacerLeJoueur();
+    void deplacerLeJoueur(int x, int y);
     void deplacerLesFauves();
     int dureeDeVieDuJoueur() const;
     int nbFauvesMort() const;
 private:
-    void ajouterLesFauvesDansLaGrille();
+    void ajouterLesMobilesDansLaGrille();
     int directionAleatoire();
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
