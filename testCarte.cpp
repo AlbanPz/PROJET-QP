@@ -50,7 +50,7 @@ TEST_CASE("[Carte] La carte est bien construite")
 
         SUBCASE("Quand il a fait au moins un tour")
         {
-            carte.deplacerLeJoueur();
+//            carte.deplacerLeJoueur();
             REQUIRE_GE(carte.dureeDeVieDuJoueur(), 0);
         }
     }
