@@ -10,9 +10,9 @@ void afficheurCarteConsole::afficherCarte(const Carte &c) const
           if(d_grille[i][j]==nullptr)
                 cout<<".";
           else
-            cout<<d_grille[i][j]->d_nom[0];
+            std::out<<d_grille[i][j]->d_nom[0];
         }
-        cout<<endl;
+        std::out<<endl;
     }
 
 }
