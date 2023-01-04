@@ -7,7 +7,7 @@ void afficheurCarteConsole::afficherCarte(const Carte &c) const
     {
         for(int j=0;j<c.d_grille[i].size;j++)
         {
-          if(d_grille==nullptr)
+          if(d_grille[i][j]==nullptr)
                 cout<<".";
           else
             cout<<d_grille[i][j]->d_nom[0];
