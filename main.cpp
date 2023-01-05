@@ -49,10 +49,13 @@ void menuJouerPartie()
     c.resize(30);
     for ( int i = 0 ; i < 30 ; i++) c[i].resize(30);
 
-
-    fauves.push_back(new Fauve{"Lion", 0, 0, 10, 0});
+    fauves.push_back(new Fauve{"Leopard", 0, 0, 30, 0});
+    fauves.push_back(new Fauve{"Tigre", 28, 28, 20, 0});
+    fauves.push_back(new Fauve{"Lion", 1, 1, 10, 0});
     fauves.push_back(new Fauve{"Tigre", 4, 5, 20, 0});
     fauves.push_back(new Fauve{"Leopard", 8, 10, 30, 0});
+
+
 
 
     c[10][20] = new Bloqueur {"Arbre", 10, 20};
@@ -82,6 +85,19 @@ void menuJouerPartie()
     Carte carte1 (jo, fauves, c );
     Jeu partie( carte1, afficheur );
 
+    partie.afficherCarte();
+    partie.d_carte.deplacerLesFauves();
+    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
+    partie.d_carte.deplacerLeJoueur(16,15);
+    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
+    partie.afficherCarte();
+
+    partie.d_carte.deplacerLeJoueur(17,15);
+    partie.d_carte.deplacerLesFauves();
+    partie.afficherCarte();
+
+    partie.d_carte.deplacerLeJoueur(18,15);
+    partie.d_carte.deplacerLesFauves();
     partie.afficherCarte();
 }
 

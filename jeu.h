@@ -15,9 +15,7 @@ public :
 
     // constructeur déja rempli
     Jeu( const Carte & c, const AfficheurCarte & a );
-    //Choisir difficulté cad le type deplacement du joueur
-    /** difficulté = 2 --> dur sinon c'est difficulté normal **/
-    void changerDifficulte(int difficulte);
+
     // fait tourner le jeu jusqu'à la fin
     void jouer();
 
@@ -32,7 +30,7 @@ public :
     void changerNombreDeTours ( int nombreDetours);
     // permet de changer le nombre de fauves tuées
     void changerNombreKills ( int score );
-
+    Carte d_carte;
 
     // permet de changer de carte
     void changerCarte ( const Carte & c);
@@ -42,7 +40,7 @@ private:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
     AfficheurCarte* d_afficheur; // Ne compile pas
-    Carte d_carte;
+
     int d_kills;
     int d_nbreToursDeJeu;
 };
