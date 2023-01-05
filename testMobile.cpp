@@ -32,15 +32,21 @@ TEST_CASE("Test de la fonction typeDeplacement de Mobile") {
 }
 
 TEST_CASE("Test de la fonction seDeplacer de Mobile") {
-    // Création d'un mobile avec une force de 10 et un type de déplacement "Lent"
-    Mobile m(1, 1, 10, "Lent");
-    // Le mobile ne peut pas se déplacer sur une position occupée par un autre mobile de force inférieure
-    Mobile m2(1, 2, 5, "Lent");
-    REQUIRE_EQ(m.seDeplacer(&m2, 1, 2), false);
-    // Le mobile peut se déplacer sur une position occupée par un autre mobile de force supérieure
-    Mobile m3(1, 2, 15, "Lent");
-    REQUIRE_EQ(m.seDeplacer(&m3, 1, 2), true);
+    Mobile m(1, 1, 1, 2); // Création d'un mobile avec une force de 1 et un type de déplacement de 2
+    Mobile m2(2, 2, 2, 1); // Création d'un mobile avec une force de 2 et un type de déplacement de 1
+
+    // On teste la fonction seDeplacer avec un mobile qui peut se déplacer sur la case cible
+    REQUIRE_EQ(m.seDeplacer(&m2, 2, 2), true); // La fonction doit renvoyer true
+    REQUIRE_EQ(m2.estVivant(), false); // Le mobile m2 doit être détruit
+    REQUIRE_EQ(m.force(), 1); // La force du mobile m doit être inchangée
+
+    // On teste la fonction seDeplacer avec un mobile qui ne peut pas se déplacer sur la case cible
+    Mobile m3(3, 3, 3, 1); // Création d'un mobile avec une force de 3 et un type de déplacement de 1
+    REQUIRE_EQ(m.seDeplacer(&m3, 3, 3), false); // La fonction doit renvoyer false
+    REQUIRE_EQ(m3.estVivant(), true); // Le mobile m3 doit être toujours en vie
+    REQUIRE_EQ(m.force(), 1); // La force du mobile m doit être inchangée
 }
+
 
 TEST_CASE("Test de la fonction 'deplacementVertiHori' de la classe Mobile")
 {
