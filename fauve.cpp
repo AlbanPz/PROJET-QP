@@ -6,6 +6,8 @@ Fauve::Fauve(const std::string& nom, int x, int y, int force, int typeDeplacemen
 
 bool Fauve::seDeplacer(Mobile* mobile, int x, int y)
 {
+    if (mobile->type() == "Joueur") return true;
+
     if (mobile->force() > force())
     {
         mobile->changerPosition(x, y);
