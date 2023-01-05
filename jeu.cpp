@@ -4,7 +4,7 @@
 
 
     // constructeur déja rempli
-    Jeu::Jeu( const Carte & c, const AfficheurCarte & a ): d_carte { c}, d_afficheur { std::make_unique<AfficheurCarte>(a)}, d_kills{0}, d_nbreToursDeJeu {0}
+    Jeu::Jeu( const Carte & c, const AfficheurCarte & a ): d_carte { c}, d_afficheur {  },d_kills{0}, d_nbreToursDeJeu {0}
     {
 
     }
@@ -58,6 +58,7 @@
     //permet de changer d'afficheur
     void Jeu::changerAfficheur ( const AfficheurCarte* &a)
     {
-        d_afficheur = std::make_unique<AfficheurCarte> (a) ;
+        //d_afficheur = std::make_unique<AfficheurCarte> (a) ;
+
     }
 

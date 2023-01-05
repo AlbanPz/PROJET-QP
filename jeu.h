@@ -5,9 +5,10 @@
 #include <iostream>
 #include <memory>
 #include "carte.h"
+#include"afficheurCarte.h"
+#include"afficheurCarteConsole.h"
 
 
-class AfficheurCarte;
 
 class Jeu {
 public :
