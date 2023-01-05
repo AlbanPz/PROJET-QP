@@ -32,6 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="afficheurCarte.h" />
+		<Unit filename="afficheurCarteConsole.cpp" />
+		<Unit filename="afficheurCarteConsole.h" />
 		<Unit filename="bloqueur.cpp" />
 		<Unit filename="bloqueur.h" />
 		<Unit filename="carte.cpp" />
@@ -40,6 +43,7 @@
 		<Unit filename="element.h" />
 		<Unit filename="fauve.cpp" />
 		<Unit filename="fauve.h" />
+		<Unit filename="jeu.cpp" />
 		<Unit filename="jeu.h" />
 		<Unit filename="joueur.cpp" />
 		<Unit filename="joueur.h" />
