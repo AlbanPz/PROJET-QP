@@ -3,6 +3,11 @@
 #include <memory>
 
 #include "jeu.h"
+#include "fauve.h"
+#include "piege.h"
+#include "bloqueur.h"
+#include "afficheurCarteConsole.h"
+
 
 /**
     Ceci est le projet principal pour le Jeu
@@ -27,6 +32,7 @@ int choixUtilisateur(int mini, int maxi)
 
 
 
+
 void menuCreerEditerCarte()
 {
     /** A continuer lorsque les class le permettront **/
@@ -42,28 +48,48 @@ void menuChargerUneConfiguration()
 void menuJouerPartie()
 {
 
-    Joueur jo ( "Joueur", 10 , 15 , 0 ,0 );
-    std::vector<Fauve*> fauves {};
+    // CARTE FICTIVE
+    std::vector<Fauve*> fauves ;
     std::vector<std::vector<Element*>> c;
 
+    c.resize(30);
+    for ( int i = 0 ; i < 30 ; i++) c[i].resize(30);
 
 
+    fauves.push_back(new Fauve{"Lion", 0, 0, 10, 0});
+    fauves.push_back(new Fauve{"Tigre", 4, 5, 20, 0});
+    fauves.push_back(new Fauve{"Leopard", 8, 10, 30, 0});
 
-    Carte carte1 (jo, fauves, c );
-    //Jeu partie{};
+
+    c[10][20] = new Bloqueur {"Arbre", 10, 20};
+    c[24][28] = new Bloqueur {"Arbre", 24, 28};
+    c[5][7] = new Bloqueur {"Arbre", 5, 7};
+
+    c[17][25] = new Piege { 17, 25 , 2};
+    c[24][26] = new Piege { 24, 26 , 2};
+    c[2][8] = new Piege { 2, 8 , 2};
+    // CARTE FICTIVE FIN
 
 
-    // Choix de la difficulté
-
+    // Choix de la difficultÃ©
     cout <<"Quelle difficulte ?"<<endl
          <<"1- Normal" <<endl
          <<"2- Dur (mobilite reduite aux axes horizontaux et verticaux)"<<endl;
     int difficulte = choixUtilisateur(1,2);
     //partie.changerDifficulte(choix);
 
+    Joueur jo ( "Joueur", 15 , 15 , 0 ,difficulte );
+
     // Choix de la carte
     cout <<"1-9 Carte personnalisees "<<endl;
     int numeroCarte = choixUtilisateur(1,9);
+
+    AfficheurCarteConsole afficheur;
+    Carte carte1 (jo, fauves, c );
+    Jeu partie( carte1, afficheur );
+
+
+    partie.afficherCarte();
 
 
 
@@ -87,7 +113,7 @@ void menu()
                 <<"2- Charger une configuration"<<endl
                 <<"3- Creer/Editer une carte"<<endl
                 <<"0- Quitter le jeu"<<endl;
-            int choix = choixUtilisateur(0,3);
+            choix = choixUtilisateur(0,3);
             switch (choix)
              {
                  case 0 : break;
@@ -96,7 +122,7 @@ void menu()
                  case 3 : menuCreerEditerCarte(); break;
              }
         }
-    //}
+
 }
 
 
@@ -106,7 +132,7 @@ int main()
    menu();
 
     /**
-        Nous avons là deux projets bien distincts
+        Nous avons lÃ  deux projets bien distincts
     */
 
 
