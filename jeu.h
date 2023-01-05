@@ -11,8 +11,7 @@ class AfficheurCarte;
 
 class Jeu {
 public :
-    // Constructeur par défaut
-    Jeu();
+
     // constructeur déja rempli
     Jeu( const Carte & c, const AfficheurCarte & a );
     //Choisir difficulté cad le type deplacement du joueur
