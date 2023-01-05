@@ -12,7 +12,7 @@ void afficheurCarteConsole::afficherCarte(const Carte &c) const
           else
             std::cout<<c.elementALaPosition(i,j)->d_nom[0];
         }
-        std::cout<<endl;
+        std::endl;
     }
 
 }
