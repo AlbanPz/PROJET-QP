@@ -29,10 +29,6 @@ int choixUtilisateur(int mini, int maxi)
     return choix;
 }
 
-
-
-
-
 void menuCreerEditerCarte()
 {
     /** A continuer lorsque les class le permettront **/
@@ -41,13 +37,11 @@ void menuCreerEditerCarte()
 void menuChargerUneConfiguration()
 {
     /** A continuer lorsque les class le permettront **/
-
 }
 
 
 void menuJouerPartie()
 {
-
     // CARTE FICTIVE
     std::vector<Fauve*> fauves ;
     std::vector<std::vector<Element*>> c;
@@ -88,53 +82,35 @@ void menuJouerPartie()
     Carte carte1 (jo, fauves, c );
     Jeu partie( carte1, afficheur );
 
-
     partie.afficherCarte();
-
-
-
-
-
 }
-
-
-
-
 
 void menu()
 {
     cout<<"Bienvenu dans le jeu des fauves !"<<endl;
-        int choix = -1;
+    int choix = -1;
 
-        while ( choix != 0 )
-        {
-            cout<<"Que voulez vous faire ?"<<endl
-                <<"1- Jouer une partie"<<endl
-                <<"2- Charger une configuration"<<endl
-                <<"3- Creer/Editer une carte"<<endl
-                <<"0- Quitter le jeu"<<endl;
-            choix = choixUtilisateur(0,3);
-            switch (choix)
-             {
-                 case 0 : break;
-                 case 1 : menuJouerPartie();  break;
-                 case 2 : menuChargerUneConfiguration(); break;
-                 case 3 : menuCreerEditerCarte(); break;
-             }
-        }
-
+    while ( choix != 0 )
+    {
+        cout<<"Que voulez vous faire ?"<<endl
+            <<"1- Jouer une partie"<<endl
+            <<"2- Charger une configuration"<<endl
+            <<"3- Creer/Editer une carte"<<endl
+            <<"0- Quitter le jeu"<<endl;
+        choix = choixUtilisateur(0,3);
+        switch (choix)
+         {
+             case 0 : break;
+             case 1 : menuJouerPartie();  break;
+             case 2 : menuChargerUneConfiguration(); break;
+             case 3 : menuCreerEditerCarte(); break;
+         }
+    }
 }
-
 
 int main()
 {
-
-   menu();
-
-    /**
-        Nous avons là deux projets bien distincts
-    */
-
+    menu();
 
     return 0;
 }
