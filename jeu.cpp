@@ -7,9 +7,16 @@
 Jeu::Jeu( const Carte & c, const AfficheurCarte & a ): d_carte { c}, d_afficheur {new AfficheurCarteConsole{}},d_kills{0}, d_nbreToursDeJeu {0}
 {}
 
+<<<<<<< HEAD
 //Choisir difficulté cad le type deplacement du joueur
 /** difficulté = 2 --> dur sinon c'est difficulté normal **/
 
+=======
+Carte& Jeu::carte()
+{
+    return d_carte;
+}
+>>>>>>> 742377b8d5be6fc5d564813cdddd2cca797a24d3
 
 // fait tourner le jeu jusqu'à la fin
 void Jeu::jouer()

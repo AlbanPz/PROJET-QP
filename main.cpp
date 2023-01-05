@@ -49,22 +49,21 @@ void menuJouerPartie()
     c.resize(30);
     for ( int i = 0 ; i < 30 ; i++) c[i].resize(30);
 
-    fauves.push_back(new Fauve{"Leopard", 0, 0, 30, 0});
-    fauves.push_back(new Fauve{"Tigre", 28, 28, 20, 0});
+
     fauves.push_back(new Fauve{"Lion", 1, 1, 10, 0});
     fauves.push_back(new Fauve{"Tigre", 4, 5, 20, 0});
     fauves.push_back(new Fauve{"Leopard", 8, 10, 30, 0});
 
 
 
-
+/*
     c[10][20] = new Bloqueur {"Arbre", 10, 20};
     c[24][28] = new Bloqueur {"Arbre", 24, 28};
     c[5][7] = new Bloqueur {"Arbre", 5, 7};
 
     c[17][25] = new Piege { 17, 25 , 2};
     c[24][26] = new Piege { 24, 26 , 2};
-    c[2][8] = new Piege { 2, 8 , 2};
+    c[2][8] = new Piege { 2, 8 , 2};*/
     // CARTE FICTIVE FIN
 
 
@@ -85,12 +84,34 @@ void menuJouerPartie()
     Carte carte1 (jo, fauves, c );
     Jeu partie( carte1, afficheur );
 
+
     partie.afficherCarte();
+<<<<<<< HEAD
     partie.d_carte.deplacerLesFauves();
    // cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
     partie.d_carte.deplacerLeJoueur(16,15);
    // cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
     partie.afficherCarte();
+=======
+    cout <<"ok" <<endl;
+
+
+
+    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
+    //partie.d_carte.deplacerLeJoueur(16,15);
+    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
+    partie.afficherCarte();
+    int x,y;
+    while ( partie.carte().d_joueur.estVivant() && partie.carte().d_fauves.size() > 0)
+    {
+        cout <<"Ou voulez vous deplacer ?" <<endl;
+        cin>>x>>y;
+        partie.carte().deplacerLeJoueur(x,y);
+        partie.afficherCarte();
+        partie.carte().deplacerLesFauves();
+        partie.afficherCarte();
+    }
+>>>>>>> 742377b8d5be6fc5d564813cdddd2cca797a24d3
 }
 
 void menu()
