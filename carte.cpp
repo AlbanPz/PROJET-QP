@@ -25,9 +25,18 @@ void Carte::ajouterLesMobilesDansLaGrille()
     }
 }
 
-Element* Carte::elementALaPosition(int x, int y)
+Element* Carte::elementALaPosition(int x, int y) const
 {
     return d_grille[x][y];
+}
+
+int Carte::nombreColonnes () const
+{
+    return d_grille[0].size();
+}
+int Carte::nombreLignes () const
+{
+    return d_grille.size();
 }
 
 void Carte::deplacerLeJoueur(int x, int y)

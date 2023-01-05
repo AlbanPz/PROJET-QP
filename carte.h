@@ -13,11 +13,16 @@ class Carte
 {
 public:
     Carte(Joueur d_joueur, std::vector<Fauve*> fauve, std::vector<std::vector<Element*>> grille);
-    Element* elementALaPosition(int x, int y);
+    Element* elementALaPosition(int x, int y) const;
     void deplacerLeJoueur(int x, int y);
     void deplacerLesFauves();
     int dureeDeVieDuJoueur() const;
     int nbFauvesMort() const;
+
+    // fonctions de présentation des données privées
+    int nombreColonnes () const;
+    int nombreLignes () const;
+
 private:
     void ajouterLesMobilesDansLaGrille();
     void directionFauve(Fauve* fauve, int& newX, int& newY);
