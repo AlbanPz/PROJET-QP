@@ -38,7 +38,7 @@ public :
     void changerCarte ( const Carte & c);
     //permet de changer d'afficheur
     void changerAfficheur ( const AfficheurCarte* &a);
-public:
+private:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
     std::unique_ptr <AfficheurCarte> d_afficheur; // Ne compile pas
