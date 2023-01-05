@@ -30,7 +30,7 @@ public :
     void changerNombreDeTours ( int nombreDetours);
     // permet de changer le nombre de fauves tuées
     void changerNombreKills ( int score );
-    Carte d_carte;
+    Carte& carte();
 
     // permet de changer de carte
     void changerCarte ( const Carte & c);
@@ -40,7 +40,7 @@ private:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
     AfficheurCarte* d_afficheur; // Ne compile pas
-
+    Carte d_carte;
     int d_kills;
     int d_nbreToursDeJeu;
 };
