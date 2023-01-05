@@ -44,7 +44,7 @@
       //si piège -> on crée un piège
         else if(type=="piege")
         {
-            fic>>nom>>x>>y>>capacite;
+            fic>>x>>y>>capacite;
             grille[x][y]=new Piege{x,y,capacite};
         }
       //sinon on crée un bloqueur
