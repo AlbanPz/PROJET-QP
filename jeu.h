@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include <memory>
+#include "carte.h"
 
-class Carte;
+
 class AfficheurCarte;
 
 class Jeu {
@@ -41,7 +42,7 @@ public:
     // fonction intermediaire appelée par la fonction jouer
     void jouerUnTour();
 //    std::unique_ptr <AfficheurCarte> d_afficheur; // Ne compile pas
-//    Carte d_carte; // Ne compile pas
+    Carte d_carte;
     int d_kills;
     int d_nbreToursDeJeu;
 };
