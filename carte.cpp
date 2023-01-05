@@ -39,18 +39,7 @@ void Carte::viderUneCase(int x, int y)
 {
     supprimeUnElement(d_grille[x][y]);
 }
-/*
-void Carte::MiseAJourDeLaGrille(int oldX, int oldY, Element* element)
-{
-    supprimeUnElement(d_grille[oldX][oldY]);
 
-    if (element)
-    {
-        int x = element->x(), y = element->y();
-        d_grille[x][y] = element;
-    }
-}
-*/
 void Carte::ajouteElementDansLaGrille(Element* element)
 {
     int x = element->x(), y = element->y();

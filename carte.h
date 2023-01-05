@@ -26,7 +26,6 @@ private:
     void remplirUneCase(Mobile* mobile);
     void remplirUneCase(Joueur& joueur);
     void viderUneCase(int x, int y);
-   // void MiseAJourDeLaGrille(int oldX, int oldY, Element* element);
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
     void deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int newY);
