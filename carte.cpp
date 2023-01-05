@@ -61,7 +61,7 @@ void Carte::deplacerLeJoueur(int x, int y)
 
         if (!element)
         {
-            viderUneCase(d_joueur.x(), d_joueur.y());
+            //viderUneCase(d_joueur.x(), d_joueur.y());
             d_joueur.changerPosition(x, y);
             remplirUneCase(d_joueur);
 
@@ -70,7 +70,7 @@ void Carte::deplacerLeJoueur(int x, int y)
         {
             if (element->seDeplacer(&d_joueur, x, y))
             {
-                viderUneCase(d_joueur.x(), d_joueur.y());
+                //viderUneCase(d_joueur.x(), d_joueur.y());
                 d_joueur.kill();
             }
             else
@@ -144,7 +144,7 @@ void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int 
 
     if (element == nullptr)
     {
-        viderUneCase(mobile->x(), mobile->y());
+        //viderUneCase(mobile->x(), mobile->y());
         mobile->changerPosition(newX, newY);
         remplirUneCase(mobile);
         return;
@@ -154,7 +154,7 @@ void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int 
 
     if (ok && element->type() == "Fauve")
     {
-        viderUneCase(mobile->x(), mobile->y());
+        //viderUneCase(mobile->x(), mobile->y());
         supprimeUnElement(element);
         remplirUneCase(mobile);
 
@@ -162,7 +162,7 @@ void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int 
     }
     else if (ok && element->type() == "Piege")
     {
-        viderUneCase(mobile->x(), mobile->y());
+       // viderUneCase(mobile->x(), mobile->y());
         Element* aux = mobile;
         supprimeUnElement(aux);
 

@@ -9,10 +9,7 @@ Jeu::Jeu( const Carte & c, const AfficheurCarte & a ): d_carte { c}, d_afficheur
 
 //Choisir difficulté cad le type deplacement du joueur
 /** difficulté = 2 --> dur sinon c'est difficulté normal **/
-void Jeu::changerDifficulte(int difficulte)
-{
 
-}
 
 // fait tourner le jeu jusqu'à la fin
 void Jeu::jouer()

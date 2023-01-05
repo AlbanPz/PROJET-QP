@@ -87,17 +87,9 @@ void menuJouerPartie()
 
     partie.afficherCarte();
     partie.d_carte.deplacerLesFauves();
-    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
+   // cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
     partie.d_carte.deplacerLeJoueur(16,15);
-    //cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
-    partie.afficherCarte();
-
-    partie.d_carte.deplacerLeJoueur(17,15);
-    partie.d_carte.deplacerLesFauves();
-    partie.afficherCarte();
-
-    partie.d_carte.deplacerLeJoueur(18,15);
-    partie.d_carte.deplacerLesFauves();
+   // cout <<carte1.d_joueur.x() << " " << carte1.d_joueur.y() << endl;
     partie.afficherCarte();
 }
 
