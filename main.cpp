@@ -12,6 +12,17 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+int choixUtilisateur(int mini, int maxi)
+{
+    int choix;
+    do
+    {
+        cout <<"Faites votre choix parmis les options de " <<mini << " a " <<maxi<<'\n';
+        cin >> choix;
+    }
+    while ( choix < mini || choix > maxi);
+    return choix;
+}
 
 void menuCreerEditerCarte()
 {
@@ -21,9 +32,9 @@ void menuCreerEditerCarte()
 void menuChargerUneConfiguration()
 {
     /** A continuer lorsque les class le permettront **/
+
 }
-/**
-* Car constructeur joueur ne compile pas
+
 
 void menuJouerPartie()
 {
@@ -33,68 +44,61 @@ void menuJouerPartie()
     std::vector<std::vector<Element*>> c;
 
 
-    Carte carte1 (jo, fauves, c );
-
-
-
+    //Carte carte1 (jo, fauves, c );
     //Jeu partie{};
 
 
     // Choix de la difficulté
-    int choix = 0;
+
     cout <<"Quelle difficulte ?"<<endl
          <<"1- Normal" <<endl
          <<"2- Dur (mobilite reduite aux axes horizontaux et verticaux)"<<endl;
-    cin>> choix;
+    int choix = choixUtilisateur(1,2);
     //partie.changerDifficulte(choix);
 
     // Choix de la carte
     cout <<"1- Carte aleatoire" <<endl
-         <<"2- 9 Carte personnalisees : Attention, si la carte n'existe pas, une carte aléatoire sera generee"<<endl;
-    cin>> choix;
+         <<"2- 9 Carte personnalisees : Attention, si la carte n'existe pas, une carte aleatoire sera generee"<<endl;
+    int choix = choixUtilisateur(1,2);
 
 
-*/
-    /** A continuer lorsque les class le permettront */
-//}
 
 
-/**
-* car erreur ligne 86
+}
+
+
+
+
 
 void menu()
 {
     cout<<"Bienvenu dans le jeu des fauves !"<<endl;
+        int choix = -1;
 
-    //Demande le choix de l'utilisateur
-    std::string choix ="h";
-    while ( choix[0] != '0')
-    {
-        do {
-        cout<<"Que voulez vous faire ?"<<endl
-            <<"1- Jouer une partie"<<endl
-            <<"2- Charger une configuration"<<endl
-            <<"3- Creer/Editer une carte"<<endl
-            <<"0- Quitter le jeu"<<endl;
-
-        cin>>choix;
-        } while (choix == "" || (choix[0] < 0  && choix[0] > 3));
-
-        // agit en fonction de son choix
-        switch (choix[0])
-         {
-             case 0 : break;
-             case 1 : menuJouerPartie();  break;
-             case 2 : menuChargerUneConfiguration(); break;
-             case 3 : menuCreerEditerCarte(); break;
-         }
-    }
+        while ( choix != 0 )
+        {
+            cout<<"Que voulez vous faire ?"<<endl
+                <<"1- Jouer une partie"<<endl
+                <<"2- Charger une configuration"<<endl
+                <<"3- Creer/Editer une carte"<<endl
+                <<"0- Quitter le jeu"<<endl;
+            int choix = choixUtilisateur(0,3);
+            switch (choix)
+             {
+                 case 0 : break;
+                 case 1 : menuJouerPartie();  break;
+                 case 2 : menuChargerUneConfiguration(); break;
+                 case 3 : menuCreerEditerCarte(); break;
+             }
+        }
+    //}
 }
-*/
+
 
 int main()
 {
-//    menu();
+
+   menu();
 
     /**
         Nous avons là deux projets bien distincts
