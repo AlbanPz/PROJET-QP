@@ -53,7 +53,7 @@ void menuJouerPartie()
     //Jeu partie{};
 
 
-    // Choix de la difficulté
+    // Choix de la difficultÃ©
 
     cout <<"Quelle difficulte ?"<<endl
          <<"1- Normal" <<endl
@@ -87,7 +87,7 @@ void menu()
                 <<"2- Charger une configuration"<<endl
                 <<"3- Creer/Editer une carte"<<endl
                 <<"0- Quitter le jeu"<<endl;
-            int choix = choixUtilisateur(0,3);
+            choix = choixUtilisateur(0,3);
             switch (choix)
              {
                  case 0 : break;
@@ -106,7 +106,7 @@ int main()
    menu();
 
     /**
-        Nous avons là deux projets bien distincts
+        Nous avons lÃ  deux projets bien distincts
     */
 
 
