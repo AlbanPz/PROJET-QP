@@ -26,9 +26,9 @@ TEST_CASE("Test de la fonction force de Mobile") {
 }
 
 TEST_CASE("Test de la fonction typeDeplacement de Mobile") {
-    // Création d'un mobile avec un type de déplacement "Lent"
-    Mobile m(1, 1, 10, "Lent");
-    REQUIRE_EQ(m.typeDeplacement(), "Lent");
+    // Création d'un mobile avec un type de déplacement 1
+    Mobile m(1, 1, 10, 1);
+    REQUIRE_EQ(m.typeDeplacement(), 1);
 }
 
 TEST_CASE("Test de la fonction seDeplacer de Mobile") {
