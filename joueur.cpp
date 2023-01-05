@@ -6,9 +6,11 @@ Joueur::Joueur(const std::string& nom, int x, int y, int force, int typeDeplacem
 
 bool Joueur::seDeplacer(Mobile* mobile, int x, int y)
 {
-    // Le joueur ne peut pas se déplacer sur un autre élément mobile.
-    // La méthode renvoie donc toujours false.
-    return false;
+     /** Il n'y a que les fauves qui se déplacent sur le joueur */
+
+    kill();
+    mobile->changerPosition(x, y);
+    return estVivant();
 }
 
 bool Joueur::estVivant() const
