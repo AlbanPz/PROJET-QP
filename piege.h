@@ -9,8 +9,6 @@ public:
     Piege(int x, int y, int capa);
     int capacite() const;
     void diminuerCapacite();
-
-    /** Rajouté par Mdou Dian */
     bool seDeplacer(Mobile* mobile, int x, int y) override;
 private:
     int d_capacite;
