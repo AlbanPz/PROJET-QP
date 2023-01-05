@@ -1,10 +1,10 @@
 #ifndef AFFICHEURCARTE_H_INCLUDED
 #define AFFICHEURCARTE_H_INCLUDED
 #include "carte.h"
-class afficheurCarte{
+class AfficheurCarte{
 public:
-    virtual void afficherCarte(const Carte &c) const = 0;
-    virtual ~afficheurCarte() = default;
+    virtual void AfficherCarte(const Carte &c) const = 0;
+    virtual ~AfficheurCarte() = default;
 };
 
 

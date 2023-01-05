@@ -1,18 +1,22 @@
 #include "carte.h"
 #include "afficheurCarteConsole.h"
 #include <vector>
-void afficheurCarteConsole::afficherCarte(const Carte &c) const
+void AfficheurCarteConsole::AfficherCarte(const Carte &c) const
 {
-    for(int i=0; i<c.ligne();i++)
+    for(int i=0; i<c.nombreLignes();i++)
     {
-        for(int j=0;j<c.colonne();j++)
+        for(int j=0;j<c.nombreColonnes();j++)
         {
-          if(c.elementALaPosition(i,j)==nullptr)
+          if( c.elementALaPosition(i,j) ==nullptr)
                 std::cout<<".";
           else
-            std::cout<<c.elementALaPosition(i,j)->d_nom[0];
+          {
+              std::string nomElement = c.elementALaPosition(i,j)->nom();
+              std::cout<<nomElement[0];
+          }
+
         }
-        std::endl;
+        std::cout<<std::endl;
     }
 
 }

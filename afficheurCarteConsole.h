@@ -2,10 +2,10 @@
 #define AFFICHEURCARTECONSOLE_H_INCLUDED
 #include "afficheurCarte.h"
 
-class afficheurCarteConsole : public afficheurCarte
+class AfficheurCarteConsole : public AfficheurCarte
 {
 public:
-    virtual void afficherCarte(const Carte &c)const override;
+    virtual void AfficherCarte(const Carte &c)const override;
 };
 
 
