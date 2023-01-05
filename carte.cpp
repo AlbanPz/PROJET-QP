@@ -25,18 +25,26 @@ void Carte::ajouterLesMobilesDansLaGrille()
     }
 }
 
+void Carte::MiseAJourDeLaGrille(int oldX, int oldY, Element* element)
+{
+    supprimeUnElement(d_grille[oldX][oldY]);
+
+    if (element)
+    {
+        int x = element->x(), y = element->y();
+        d_grille[x][y] = element;
+    }
+}
+
+void Carte::ajouteElementDansLaGrille(Element* element)
+{
+    int x = element->x(), y = element->y();
+    d_grille[x][y] = element;
+}
+
 Element* Carte::elementALaPosition(int x, int y) const
 {
     return d_grille[x][y];
-}
-
-int Carte::nombreColonnes () const
-{
-    return d_grille[0].size();
-}
-int Carte::nombreLignes () const
-{
-    return d_grille.size();
 }
 
 void Carte::deplacerLeJoueur(int x, int y)
@@ -49,11 +57,15 @@ void Carte::deplacerLeJoueur(int x, int y)
 
         if (!element)
         {
+            int oldX = d_joueur.x(), oldY = d_joueur.y();
             d_joueur.changerPosition(x, y);
-            ++ d_dureeVieJoueur;
+            ++d_dureeVieJoueur;
+            MiseAJourDeLaGrille(oldX, oldY, &d_joueur);
         }else
         {
-            if (!element->seDeplacer(&d_joueur, x, y))
+            if (element->seDeplacer(&d_joueur, x, y))
+                d_joueur.kill();
+            else
                 ++d_dureeVieJoueur;
         }
     }
@@ -102,7 +114,9 @@ void Carte::deplacerUnFauve(int i)
 
     if (d_fauves[i]->peutSeDeplacerSurPosition(x, y))
     {
-        deplacerMobileSur(d_fauves[i], elementALaPosition(x, y), x, y);
+        Mobile* mobile = d_fauves[i];
+        Element* element = elementALaPosition(x, y);
+        deplacerMobileSur(mobile, element, x, y);
     }
 }
 
@@ -113,7 +127,7 @@ void Carte::deplacerLesFauves()
 }
 
 
-void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY)
+void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int newY)
 {
     /**
         * Ici, le mobile en question est un fauve
@@ -122,7 +136,10 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int ne
 
     if (element == nullptr)
     {
+        int oldX = mobile->x(), oldY = mobile->y();
         mobile->changerPosition(newX, newY);
+
+        MiseAJourDeLaGrille(oldX, oldY, mobile);
         return;
     }
 
@@ -130,13 +147,20 @@ void Carte::deplacerMobileSur(Mobile* mobile, Element* element, int newX, int ne
 
     if (ok && element->type() == "Fauve")
     {
+        int oldX = mobile->x(), oldY = mobile->y();
         supprimeUnElement(element);
         ++d_nbFauvesMort;
+
+        MiseAJourDeLaGrille(oldX, oldY, mobile);
     }
     else if (ok && element->type() == "Piege")
     {
-        supprimeUnElement(mobile);
+        int oldX = mobile->x(), oldY = mobile->y();
+        Element* aux = mobile;
+        supprimeUnElement(aux);
         ++d_nbFauvesMort;
+
+        MiseAJourDeLaGrille(oldX, oldY, mobile);
     }
 
     /** Si c'est un bloqueur on ne fait rien */
@@ -153,7 +177,17 @@ int Carte::nbFauvesMort() const
     return d_nbFauvesMort;
 }
 
-void Carte::supprimeUnElement(Element* element)
+int Carte::nombreColonnes () const
+{
+    return d_grille[0].size();
+}
+
+int Carte::nombreLignes () const
+{
+    return d_grille.size();
+}
+
+void Carte::supprimeUnElement(Element* &element)
 {
     Element* aux = element;
     element = nullptr;

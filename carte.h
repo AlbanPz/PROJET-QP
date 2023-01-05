@@ -18,17 +18,16 @@ public:
     void deplacerLesFauves();
     int dureeDeVieDuJoueur() const;
     int nbFauvesMort() const;
-
-    // fonctions de présentation des données privées
     int nombreColonnes () const;
     int nombreLignes () const;
-
+    void ajouteElementDansLaGrille(Element* element);
 private:
     void ajouterLesMobilesDansLaGrille();
+    void MiseAJourDeLaGrille(int oldX, int oldY, Element* element);
     void directionFauve(Fauve* fauve, int& newX, int& newY);
     void deplacerUnFauve(int i);
-    void deplacerMobileSur(Mobile* mobile, Element* element, int newX, int newY);
-    void supprimeUnElement(Element* element);
+    void deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int newY);
+    void supprimeUnElement(Element* &element);
 
     Joueur d_joueur;
     std::vector<Fauve*> d_fauves;
