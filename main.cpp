@@ -24,6 +24,9 @@ int choixUtilisateur(int mini, int maxi)
     return choix;
 }
 
+
+
+
 void menuCreerEditerCarte()
 {
     /** A continuer lorsque les class le permettront **/
@@ -44,7 +47,9 @@ void menuJouerPartie()
     std::vector<std::vector<Element*>> c;
 
 
-    //Carte carte1 (jo, fauves, c );
+
+
+    Carte carte1 (jo, fauves, c );
     //Jeu partie{};
 
 
@@ -53,13 +58,13 @@ void menuJouerPartie()
     cout <<"Quelle difficulte ?"<<endl
          <<"1- Normal" <<endl
          <<"2- Dur (mobilite reduite aux axes horizontaux et verticaux)"<<endl;
-    int choix = choixUtilisateur(1,2);
+    int difficulte = choixUtilisateur(1,2);
     //partie.changerDifficulte(choix);
 
     // Choix de la carte
-    cout <<"1- Carte aleatoire" <<endl
-         <<"2- 9 Carte personnalisees : Attention, si la carte n'existe pas, une carte aleatoire sera generee"<<endl;
-    int choix = choixUtilisateur(1,2);
+    cout <<"1-9 Carte personnalisees "<<endl;
+    int numeroCarte = choixUtilisateur(1,9);
+
 
 
 
