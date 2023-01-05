@@ -2,6 +2,7 @@
 #define AFFICHEURCARTE_H_INCLUDED
 #include "carte.h"
 #include <iostream>
+#include <iomanip>
 
 class AfficheurCarte{
 public:
