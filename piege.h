@@ -1,19 +1,19 @@
-#ifndef PIEGE_H_INCLUDED
-#define PIEGE_H_INCLUDED
+#ifndef PIEGE_H
+#define PIEGE_H
 
 #include "element.h"
-class Piege : public Element {
 
+class Piege : public Element
+{
 public:
-    Piege (int x, int y, int capa);
+    Piege(int x, int y, int capa);
     int capacite() const;
     void diminuerCapacite();
 
-    /** Rajouté par Mdou Dian */
+    /** RajoutÃ© par Mdou Dian */
     bool seDeplacer(Mobile* mobile, int x, int y) override;
 private:
     int d_capacite;
-
 };
 
-#endif // PIEGE_H_INCLUDED
+#endif // PIEGE_H
