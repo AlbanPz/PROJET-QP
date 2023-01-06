@@ -2,18 +2,18 @@
 1669573578 source:d:\l3 miage\qualité de programmation\projet\projet-qp\jeu de fauves\main.cpp
 	<iostream>
 
-1672965234 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
+1673006065 source:d:\l3 miage\qualité de programmation\projet\projet-qp\carte.cpp
 	<cstdlib>
 	<time.h>
 	"carte.h"
 	"fauve.h"
 	"piege.h"
 
-1672965108 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
+1673000388 d:\l3 miage\qualité de programmation\projet\projet-qp\carte.h
 	<vector>
 	"joueur.h"
 
-1672935663 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
+1673005019 source:d:\l3 miage\qualité de programmation\projet\projet-qp\piege.cpp
 	"piege.h"
 	"mobile.h"
 
@@ -43,7 +43,7 @@
 	"element.h"
 	<cmath>
 
-1672952530 source:d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.cpp
+1673005574 source:d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.cpp
 	"joueur.h"
 
 1672927820 d:\l3 miage\qualité de programmation\projet\projet-qp\joueur.h
@@ -52,16 +52,17 @@
 1672784776 source:d:\l3 miage\qualité de programmation\projet\projet-qp\mobile.cpp
 	"mobile.h"
 
-1672965432 source:d:\l3 miage\qualité de programmation\projet\projet-qp\main.cpp
+1673006418 source:d:\l3 miage\qualité de programmation\projet\projet-qp\main.cpp
 	<iostream>
 	<memory>
+	<cstdlib>
 	"jeu.h"
 	"fauve.h"
 	"piege.h"
 	"bloqueur.h"
 	"afficheurCarteConsole.h"
 
-1672952530 d:\l3 miage\qualité de programmation\projet\projet-qp\jeu.h
+1673000756 d:\l3 miage\qualité de programmation\projet\projet-qp\jeu.h
 	<iostream>
 	<memory>
 	"carte.h"
@@ -81,6 +82,21 @@
 	"afficheurCarteConsole.h"
 	<vector>
 
-1672964843 source:d:\l3 miage\qualité de programmation\projet\projet-qp\jeu.cpp
+1673002836 source:d:\l3 miage\qualité de programmation\projet\projet-qp\jeu.cpp
+	<iostream>
 	"jeu.h"
+
+1673000039 source:d:\l3 miage\qualité de programmation\projet\projet-qp\chargeurcarte.cpp
+	"chargeurCarte.h"
+	"fstream"
+	<vector>
+	"piege.h"
+	"element.h"
+	"fauve.h"
+	"bloqueur.h"
+	"joueur.h"
+	"carte.h"
+
+1673000088 d:\l3 miage\qualité de programmation\projet\projet-qp\chargeurcarte.h
+	"carte.h"
 

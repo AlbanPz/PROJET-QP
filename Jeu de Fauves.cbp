@@ -39,6 +39,8 @@
 		<Unit filename="bloqueur.h" />
 		<Unit filename="carte.cpp" />
 		<Unit filename="carte.h" />
+		<Unit filename="chargeurCarte.cpp" />
+		<Unit filename="chargeurCarte.h" />
 		<Unit filename="element.cpp" />
 		<Unit filename="element.h" />
 		<Unit filename="fauve.cpp" />
