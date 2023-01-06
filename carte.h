@@ -21,6 +21,7 @@ public:
     int nombreColonnes () const;
     int nombreLignes () const;
     void ajouteElementDansLaGrille(Element* element);
+    Joueur& joueur();
 private:
     void ajouterLesMobilesDansLaGrille();
     void remplirUneCase(Mobile* mobile);
