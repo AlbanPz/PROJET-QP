@@ -1,14 +1,14 @@
+#include <iostream>
 #include "jeu.h"
 
-
-
+using std::cout;
+using std::cin;
+using std::endl;
 
 // constructeur déja rempli
-Jeu::Jeu( const Carte & c, const AfficheurCarte & a ): d_carte { c}, d_afficheur {new AfficheurCarteConsole{}},d_kills{0}, d_nbreToursDeJeu {0}
+Jeu::Jeu( const Carte & c, const AfficheurCarte & a ):
+    d_carte {c}, d_afficheur {new AfficheurCarteConsole{}},d_kills{0}, d_nbreToursDeJeu {0}
 {}
-
-//Choisir difficulté cad le type deplacement du joueur
-/** difficulté = 2 --> dur sinon c'est difficulté normal **/
 
 Carte& Jeu::carte()
 {
@@ -16,11 +16,22 @@ Carte& Jeu::carte()
 }
 
 // fait tourner le jeu jusqu'à la fin
-void Jeu::jouer()
+bool Jeu::jouer()
 {
+    afficherCarte();
+    int x,y;
+    while (d_carte.joueur().estVivant())
+    {
+        cout <<"Ou voulez vous deplacer ?" <<endl;
+        cin>>x>>y;
+        d_carte.deplacerLeJoueur(x,y);
+        d_carte.deplacerLesFauves();
 
+        afficherCarte();
+    }
+
+    return d_carte.joueur().estVivant();
 }
-
 
 // affiche la carte à l'aide de l'afficheur
 void Jeu::afficherCarte()const

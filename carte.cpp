@@ -46,9 +46,14 @@ void Carte::ajouteElementDansLaGrille(Element* element)
     d_grille[x][y] = element;
 }
 
-Joueur& Carte::joueur()
+const Joueur& Carte::joueur() const
 {
     return d_joueur;
+}
+
+int Carte::nbFauves() const
+{
+    return d_fauves.size();
 }
 
 Element* Carte::elementALaPosition(int x, int y) const
@@ -86,6 +91,8 @@ void Carte::deplacerLeJoueur(int x, int y)
 
 void Carte::directionFauve(Fauve* fauve, int& newX, int& newY)
 {
+    if (!d_joueur.estVivant()) return;
+
     int xj = d_joueur.x(), yj = d_joueur.y();
 
     if (xj < fauve->x())
@@ -122,7 +129,7 @@ void Carte::deplacerUnFauve(int i)
 {
     if (!d_fauves[i]) return;
 
-    int x = 0, y = 0;
+    int x = d_fauves[i]->x(), y = d_fauves[i]->y();
     directionFauve(d_fauves[i], x, y);
 
     if (d_fauves[i]->peutSeDeplacerSurPosition(x, y))
@@ -155,11 +162,11 @@ void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int 
         return;
     }
 
+    viderUneCase(mobile->x(), mobile->y());
     bool ok = element->seDeplacer(mobile, newX, newY);
 
     if (ok && element->type() == "Fauve")
     {
-        viderUneCase(mobile->x(), mobile->y());
         supprimeUnElement(element);
         remplirUneCase(mobile);
 
@@ -167,14 +174,16 @@ void Carte::deplacerMobileSur(Mobile* &mobile, Element* &element, int newX, int 
     }
     else if (ok && element->type() == "Piege")
     {
-        viderUneCase(mobile->x(), mobile->y());
         Element* aux = mobile;
         supprimeUnElement(aux);
 
         ++d_nbFauvesMort;
-    }
-
-    /** Si c'est un bloqueur on ne fait rien */
+    }else if (ok && element->type() == "Joueur")
+    {
+        viderUneCase(d_joueur.x(), d_joueur.y());
+        remplirUneCase(mobile);
+    }else
+        remplirUneCase(mobile);
 }
 
 

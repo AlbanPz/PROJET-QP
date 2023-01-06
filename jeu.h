@@ -17,7 +17,7 @@ public :
     Jeu( const Carte & c, const AfficheurCarte & a );
 
     // fait tourner le jeu jusqu'à la fin
-    void jouer();
+    bool jouer();
 
     // affiche la carte à l'aide de l'afficheur
     void afficherCarte()const;

@@ -6,11 +6,11 @@ Joueur::Joueur(const std::string& nom, int x, int y, int force, int typeDeplacem
 
 bool Joueur::seDeplacer(Mobile* mobile, int x, int y)
 {
-     /** Il n'y a que les fauves qui se déplacent sur le joueur */
+    /** Il n'y a que les fauves qui se déplacent sur le joueur */
 
     kill();
     mobile->changerPosition(x, y);
-    return estVivant();
+    return true;
 }
 
 bool Joueur::estVivant() const

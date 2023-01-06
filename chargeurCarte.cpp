@@ -8,7 +8,7 @@
 #include "joueur.h"
 #include "carte.h"
 
- Carte chargeurCarte::chargerCarte(const std::string nomFichier) const
+Carte chargeurCarte::chargerCarte(const std::string nomFichier)
  {
      std::ifstream fic;
      fic.open(nomFichier);
@@ -64,8 +64,8 @@
      }
      // on ferme le fichier
      fic.close();
-     Carte Carte{j1,fauves1,terrain};
-     return Carte;
+     Carte carte1{j1, fauves1, terrain};
+     return carte1;
      }
 
   //si le fichier ne s'ouvre pas, on prévient l'utilisateur

@@ -1,6 +1,6 @@
 #include <iostream>
-
 #include <memory>
+#include <cstdlib>
 
 #include "jeu.h"
 #include "fauve.h"
@@ -70,7 +70,7 @@ void menuJouerPartie()
     int difficulte = choixUtilisateur(1,2);
     //partie.changerDifficulte(choix);
 
-    Joueur jo ("Joueur", 15 , 15 , 0 ,difficulte );
+    Joueur jo ("Joueur", 15, 15, 0, difficulte);
 
     // Choix de la carte
     cout <<"1-9 Carte personnalisees "<<endl;
@@ -78,23 +78,23 @@ void menuJouerPartie()
 
     AfficheurCarteConsole afficheur;
     Carte carte1 (jo, fauves, c );
-    Jeu partie( carte1, afficheur );
+    Jeu partie(carte1, afficheur );
 
-    cout <<"ok" <<endl;
+    system("cls");
 
-    partie.afficherCarte();
-    int x,y;
-    while (partie.carte().joueur().estVivant())
+    if (partie.jouer())
     {
-        cout <<"Ou voulez vous deplacer ?" <<endl;
-        cin>>x>>y;
-        partie.carte().deplacerLeJoueur(x,y);
-        partie.afficherCarte();
-        partie.carte().deplacerLesFauves();
-        partie.afficherCarte();
+        cout << "Felicitations, vous avez GAGNE la partie !" << endl;
+        cout << "Vous avez fait " << partie.carte().dureeDeVieDuJoueur() << " tour(s)," << endl;
+        cout << "Et avez tue " << partie.carte().nbFauvesMort() << " fauve(s)" << endl;
+    }else
+    {
+        cout << "Oups, vous avez PERDU la partie !" << endl;
+        cout << "Vous avez fait " << partie.carte().dureeDeVieDuJoueur() << " tour(s)," << endl;
+        cout << "Et avez tue " << partie.carte().nbFauvesMort() << " fauve(s)." << endl;
     }
 
-    /** Précisez si la partie est gagnée ou perdu avec le score !!! */
+    system("pause"); system("cls");
 }
 
 void menu()
@@ -113,7 +113,7 @@ void menu()
         switch (choix)
          {
              case 0 : break;
-             case 1 : menuJouerPartie();  break;
+             case 1 : menuJouerPartie(); break;
              case 2 : menuChargerUneConfiguration(); break;
              case 3 : menuCreerEditerCarte(); break;
          }

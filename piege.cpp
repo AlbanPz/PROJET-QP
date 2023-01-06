@@ -16,11 +16,10 @@ void Piege::diminuerCapacite()
 
 bool Piege::seDeplacer(Mobile* mobile, int x, int y)
 {
+    mobile->changerPosition(x, y);
+
     if (d_capacite > 0)
     {
-        if (mobile->type() == "Joueur") return true;
-
-        mobile->changerPosition(x, y);
         diminuerCapacite();
         return true;
     }else
